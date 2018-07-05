@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from 'react';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <div className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </div>
-      </div>
-    );
-  }
-}
+import ConfigurationApproach from './ConfigurationApproach';
+import CompositionApproach from './CompositionApproach';
+
+const OPTIONS = [
+  { value: 'grapefruit', label: 'Grapefruit' },
+  { value: 'lime', label: 'Lime' },
+  { value: 'coconut', label: 'Coconut' },
+  { value: 'mango', label: 'Mango' },
+];
+
+const App = () =>
+  <Fragment>
+    <ConfigurationApproach options={OPTIONS} />
+    <CompositionApproach options={OPTIONS} />
+  </Fragment>
 
 export default App;
