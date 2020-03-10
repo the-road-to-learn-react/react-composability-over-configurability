@@ -1,29 +1,17 @@
-import React, { Component } from 'react';
+import React from "react";
 
-import Select from './Select';
+import Select from "./Select";
 
-class ConfigurationApproach extends Component {
-  constructor(props) {
-    super(props);
+const ConfigurationApproach = ({ options }) => {
+  const [option, setOption] = React.useState(options[1].value);
 
-    this.state = {
-      value: props.options[1].value,
-    };
-  }
+  const handleChange = value => {
+    setOption(value);
+  };
 
-  handleChange = value => {
-    this.setState({ value });
-  }
-
-  render () {
-    return (
-      <Select
-        value={this.state.value}
-        options={this.props.options}
-        handleChange={this.handleChange}
-      />
-    );
-  }
-}
+  return (
+    <Select value={option} options={options} handleChange={handleChange} />
+  );
+};
 
 export default ConfigurationApproach;
